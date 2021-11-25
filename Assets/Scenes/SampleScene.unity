@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 16790839}
   m_Layer: 0
   m_Name: quadrado (9)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 31480056}
   m_Layer: 0
   m_Name: quadrado (17)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 40546662}
   m_Layer: 0
   m_Name: quadrado (6)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 624514203}
   m_Layer: 0
   m_Name: quadrado (3)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 690511862}
   m_Layer: 0
   m_Name: quadrado (7)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 869181126}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 882915850}
   m_Layer: 0
   m_Name: quadrado (4)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1234,6 +1234,8 @@ GameObject:
   - component: {fileID: 987797127}
   - component: {fileID: 987797130}
   - component: {fileID: 987797131}
+  - component: {fileID: 987797133}
+  - component: {fileID: 987797132}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -1355,9 +1357,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088829793b8b9426f9d83a9d2f21f8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _power: 0
-  _speed: 0
-  _direction: {x: 0, y: 0}
+  _power: 2
+  _speed: 3
+  _direction: {x: 0.7071071, y: 0.7071071}
+--- !u!114 &987797132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987797126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7dd85639c624bc5870af622a53ed93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &987797133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987797126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921ac02e0330b45ae8c77691b88f26c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1078941999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,7 +1603,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1708,7 +1734,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1739,7 +1765,7 @@ GameObject:
   - component: {fileID: 1619605145}
   m_Layer: 0
   m_Name: quadrado (10)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2015,7 +2041,7 @@ GameObject:
   - component: {fileID: 1711344248}
   m_Layer: 0
   m_Name: quadrado (5)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2159,7 +2185,7 @@ GameObject:
   - component: {fileID: 1769604220}
   m_Layer: 0
   m_Name: quadrado (16)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2278,7 +2304,7 @@ GameObject:
   - component: {fileID: 1943643511}
   m_Layer: 0
   m_Name: quadrado (18)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2423,7 +2449,7 @@ GameObject:
   - component: {fileID: 1974576804}
   m_Layer: 0
   m_Name: quadrado (15)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

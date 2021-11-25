@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BrickModel : MonoBehaviour
 {
-    [SerializeField] private int _health;
+    [SerializeField] private float _health;
 
-    public int Health { get => _health; set => _health = value; }
+    public float Health { get => _health; set => _health = value; }
 }

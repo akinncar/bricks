@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Br : MonoBehaviour
+public class BrickView : MonoBehaviour
 {
     private BrickController _brickController;
 
@@ -17,6 +17,6 @@ public class Br : MonoBehaviour
     // Update is called once per frame
     public void PerformTakeDamage(float damage)
     {
-        _brickController.TakeDamage(damage)
+        _brickController.TakeDamage(damage);
     }
 }
