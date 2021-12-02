@@ -25,8 +25,7 @@ public class BallView : MonoBehaviour
         // moviment ball change when player crash
         if (collision.gameObject.tag == "Player")
         {
-            // reflex player
-            _ballController.PerfectAngleReflect(collision);
+            _ballController.CalcBallAngleReflect(collision);
         }
         else
         {

@@ -17,6 +17,7 @@ public class BrickController : MonoBehaviour
     // Update is called once per frame
     public void TakeDamage(float damage)
     {
+        Destroy(gameObject);
         _brickModel.Health -= damage;
         
         if (_brickModel.Health <= 0) 
