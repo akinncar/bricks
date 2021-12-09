@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BrickController : MonoBehaviour
 {
     private BrickModel _brickModel;
+    Text numberBricks;
 
     public BrickModel BrickModel { get => _brickModel; set => _brickModel = value; }
 
@@ -22,6 +24,15 @@ public class BrickController : MonoBehaviour
         
         if (_brickModel.Health <= 0) 
         {
+            int oldScore;
+            int newScore;
+
+            numberBricks = GameObject.Find("NumberBricks").GetComponent<Text>();
+            int.TryParse(numberBricks.text, out oldScore);
+            newScore = oldScore - 1;
+
+            numberBricks.text = newScore.ToString();
+
             Destroy(gameObject);
         } 
     }

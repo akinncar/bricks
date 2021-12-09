@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BallView : MonoBehaviour
 {
     private BallController _ballController;
+    Vector3 myVector;
+    Text life;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,20 @@ public class BallView : MonoBehaviour
             BrickView _brickView = collision.gameObject.GetComponent<BrickView>();
             _brickView.PerformTakeDamage(1f);
         }
+        else if (collision.gameObject.tag == "Finish")
+        {
+            int oldLife;
+            int newLife;
+
+            life = GameObject.Find("Life").GetComponent<Text>();
+            int.TryParse(life.text, out oldLife);
+            newLife = oldLife - 1;
+
+            life.text = newLife.ToString();
+
+            myVector = new Vector3(-1.32f, -3.71f, 0.0f);
+            _ballController.transform.SetPositionAndRotation(myVector, new Quaternion());
+        }
 
         // moviment ball change when player crash
         if (collision.gameObject.tag == "Player")
@@ -32,6 +49,7 @@ public class BallView : MonoBehaviour
             // loads normal angle
             _ballController.PerfectAngleReflect(collision);
         }
+
         
     }
 }
