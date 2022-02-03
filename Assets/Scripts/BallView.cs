@@ -19,7 +19,7 @@ public class BallView : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // verify game object type to take damage
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "enemy")
         {
             BrickView _brickView = collision.gameObject.GetComponent<BrickView>();
             _brickView.PerformTakeDamage(1f);
