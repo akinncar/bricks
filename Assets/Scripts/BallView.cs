@@ -9,6 +9,8 @@ public class BallView : MonoBehaviour
   Vector3 myVector;
   Text life;
   AudioSource _sourceAudio;
+  Text points;
+  Text message;
 
   // Start is called before the first frame update
   void Start()
@@ -25,7 +27,7 @@ public class BallView : MonoBehaviour
     {
       _sourceAudio.Play();
       BrickView _brickView = collision.gameObject.GetComponent<BrickView>();
-      _brickView.PerformTakeDamage(1f);
+      _brickView.PerformTakeDamage(1f, _ballController);
     }
     else if (collision.gameObject.tag == "Finish")
     {
@@ -34,15 +36,38 @@ public class BallView : MonoBehaviour
 
       life = GameObject.Find("Life").GetComponent<Text>();
 
-      if (life.text != "0")
+      if (life.text != "1")
       {
+        // score
+        // int oldScore;
+        // int newScore;
+
+        // points = GameObject.Find("Points").GetComponent<Text>();
+        // int.TryParse(points.text, out oldScore);
+        // newScore = oldScore - 10;
+
+        // points.text = newScore.ToString();
+
+        // life
         int.TryParse(life.text, out oldLife);
         newLife = oldLife - 1;
 
         life.text = newLife.ToString();
 
-        myVector = new Vector3(-1.32f, -3.71f, 0.0f);
-        _ballController.transform.SetPositionAndRotation(myVector, new Quaternion());
+        _ballController.StartBall();
+      }
+      else
+      {
+        // life
+        int.TryParse(life.text, out oldLife);
+        newLife = oldLife - 1;
+
+        life.text = newLife.ToString();
+
+        message = GameObject.Find("Message").GetComponent<Text>();
+        message.text = "Game Over!";
+
+        _ballController.StopBall();
       };
 
     }
@@ -52,12 +77,32 @@ public class BallView : MonoBehaviour
     {
       _sourceAudio.Play();
       _ballController.CalcBallAngleReflect(collision);
+
+      // score
+      //   int oldScore;
+      //   int newScore;
+
+      //   points = GameObject.Find("Points").GetComponent<Text>();
+      //   int.TryParse(points.text, out oldScore);
+      //   newScore = oldScore - 1;
+
+      //   points.text = newScore.ToString();
     }
     else
     {
       // loads normal angle
       _sourceAudio.Play();
       _ballController.PerfectAngleReflect(collision);
+
+      // score
+      //   int oldScore;
+      //   int newScore;
+
+      //   points = GameObject.Find("Points").GetComponent<Text>();
+      //   int.TryParse(points.text, out oldScore);
+      //   newScore = oldScore - 1;
+
+      //   points.text = newScore.ToString();
     }
 
   }

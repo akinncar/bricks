@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
   private BallModel _ballModel;
   private Rigidbody2D _ballRigibody;
+  private Text message;
 
   // Start is called before the first frame update
   void Start()
@@ -15,6 +17,19 @@ public class BallController : MonoBehaviour
 
     _ballRigibody.velocity = _ballModel.Direction * _ballModel.Speed;
   }
+
+  public void StartBall()
+  {
+    this.transform.position = Vector2.zero;
+    _ballRigibody.velocity = Vector2.zero;
+  }
+
+  public void StopBall()
+  {
+    this.transform.position = new Vector2(-999f, -999f);
+    _ballRigibody.velocity = Vector2.zero;
+  }
+
 
   // Update is called once per frame
   public void PerfectAngleReflect(Collision2D collision)
