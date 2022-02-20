@@ -47,7 +47,7 @@ public class BallController : MonoBehaviour
     float unityScaleHalfPlayerPixels = playerPixels / 2f / 100f;
 
     // convert 0 to 120 (player) to 0 to 180 (angle)
-    float scaleFactorPut1dot180Range = 180 / playerPixels;
+    float scaleFactorPut1dot180Range = 120 / playerPixels;
 
     // calc angle from unity scale (0 > 1.8)
     float angleDegUnityScale = (
@@ -58,7 +58,7 @@ public class BallController : MonoBehaviour
 
     float angleDeg = angleDegUnityScale * 100f;
 
-    float angleRad = angleDeg * Mathf.PI / 180f;
+    float angleRad = angleDeg * Mathf.PI / 120f;
 
     Vector2 vetorRetorno = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
 
