@@ -8,7 +8,12 @@ public class BallView : MonoBehaviour
   private BallController _ballController;
   Vector3 myVector;
   Text life;
+  AudioSource[] sounds;
   AudioSource _sourceAudio;
+  AudioSource _sourceAudioWall;
+  AudioSource _sourceAudioTafareu;
+  AudioSource _sourceAudioFaustao;
+  AudioSource _sourceAudioSilvioSantos;
   Text points;
   Text message;
 
@@ -16,7 +21,12 @@ public class BallView : MonoBehaviour
   void Start()
   {
     _ballController = GetComponent<BallController>();
-    _sourceAudio = GetComponent<AudioSource>();
+    sounds = GetComponents<AudioSource>();
+    _sourceAudio = sounds[0];
+    _sourceAudioWall = sounds[1];
+    _sourceAudioTafareu = sounds[2];
+    _sourceAudioFaustao = sounds[3];
+    _sourceAudioSilvioSantos = sounds[4];
   }
 
   // Update is called once per frame
@@ -28,11 +38,15 @@ public class BallView : MonoBehaviour
       _sourceAudio.Play();
       BrickView _brickView = collision.gameObject.GetComponent<BrickView>();
       _brickView.PerformTakeDamage(1f, _ballController);
+      _ballController.PerfectAngleReflect(collision);
+      return;
     }
     else if (collision.gameObject.tag == "Finish")
     {
       int oldLife;
       int newLife;
+
+      _sourceAudioFaustao.Play();
 
       life = GameObject.Find("Life").GetComponent<Text>();
 
@@ -54,10 +68,14 @@ public class BallView : MonoBehaviour
 
         life.text = newLife.ToString();
 
-        _ballController.StartBall();
+        _ballController.PerfectAngleReflect(collision);
+        myVector = new Vector3(-1.32f, 0f, 0.0f);
+        _ballController.transform.SetPositionAndRotation(myVector, new Quaternion());
       }
       else
       {
+        _sourceAudioSilvioSantos.Play();
+
         // life
         int.TryParse(life.text, out oldLife);
         newLife = oldLife - 1;
@@ -70,12 +88,13 @@ public class BallView : MonoBehaviour
         _ballController.StopBall();
       };
 
+      return;
     }
 
     // moviment ball change when player crash
     if (collision.gameObject.tag == "Player")
     {
-      _sourceAudio.Play();
+      _sourceAudioTafareu.Play();
       _ballController.CalcBallAngleReflect(collision);
 
       // score
@@ -87,11 +106,13 @@ public class BallView : MonoBehaviour
       //   newScore = oldScore - 1;
 
       //   points.text = newScore.ToString();
+
+      return;
     }
     else
     {
       // loads normal angle
-      _sourceAudio.Play();
+      _sourceAudioWall.Play();
       _ballController.PerfectAngleReflect(collision);
 
       // score

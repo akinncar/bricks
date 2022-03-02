@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BrickController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class BrickController : MonoBehaviour
   void Start()
   {
     _brickModel = GetComponent<BrickModel>();
+    GlobalVariables.numberOfBricks = 11;
   }
 
   // Update is called once per frame
@@ -43,11 +45,27 @@ public class BrickController : MonoBehaviour
 
       if (GlobalVariables.numberOfBricks == 0)
       {
-        message = GameObject.Find("Message").GetComponent<Text>();
-        message.text = "Vitória!";
+        if (GlobalVariables.level == 1)
+        {
+          GlobalVariables.level = 2;
+          SceneManager.LoadScene("Fase2");
+          return;
+        }
+        else if (GlobalVariables.level == 2)
+        {
+          GlobalVariables.level = 3;
+          SceneManager.LoadScene("Fase3");
+          return;
+        }
+        else if (GlobalVariables.level == 3)
+        {
+          message = GameObject.Find("Message").GetComponent<Text>();
+          message.text = "Vitória!";
 
-        // stop move
-        _ballController.StopBall();
+          // stop move
+          _ballController.StopBall();
+        }
+
       }
     }
   }

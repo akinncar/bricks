@@ -17,6 +17,5 @@ public class ButtonStart : MonoBehaviour
   void TaskOnClick()
   {
     SceneManager.LoadScene("Fase1");
-
   }
 }
