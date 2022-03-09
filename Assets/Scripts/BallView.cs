@@ -16,6 +16,7 @@ public class BallView : MonoBehaviour
   AudioSource _sourceAudioSilvioSantos;
   Text points;
   Text message;
+  Color m_NewColor;
 
   // Start is called before the first frame update
   void Start()
@@ -32,6 +33,9 @@ public class BallView : MonoBehaviour
   // Update is called once per frame
   private void OnCollisionEnter2D(Collision2D collision)
   {
+    // change ball color to a random color
+    _ballController.ChangeColor(Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
+
     // verify game object type to take damage
     if (collision.gameObject.tag == "enemy")
     {

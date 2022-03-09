@@ -7,6 +7,7 @@ public class BallController : MonoBehaviour
 {
   private BallModel _ballModel;
   private Rigidbody2D _ballRigibody;
+  private SpriteRenderer _ballSpriteRenderer;
   private Text message;
 
   // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class BallController : MonoBehaviour
   {
     _ballModel = GetComponent<BallModel>();
     _ballRigibody = GetComponent<Rigidbody2D>();
+    _ballSpriteRenderer = GetComponent<SpriteRenderer>();
 
     _ballRigibody.velocity = _ballModel.Direction * _ballModel.Speed;
   }
@@ -69,5 +71,10 @@ public class BallController : MonoBehaviour
   {
     _ballModel.Direction = direcion;
     _ballRigibody.velocity = _ballModel.Direction * _ballModel.Speed;
+  }
+
+  public void ChangeColor(Color color)
+  {
+    _ballSpriteRenderer.color = color;
   }
 }
